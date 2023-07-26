@@ -9,3 +9,59 @@ $color-white: #FFFFFF;
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
+
+.page{
+    width: 100%; // La largeur prend tout l'espace disponible.
+    min-width: 1024px; // Définir la largeur minimale.
+    min-height: 780px; // Définir la hauteur minimale.
+}
+
+.container{
+    margin-left: 117px;
+    &--layout{
+        padding: 120px;
+    }
+}
+
+.sidebar {
+    width: 117px; // Définir la largeur de la barre latérale à 100 pixels.
+    min-height: 100vh; // La barre latérale prendra toute la hauteur de la fenêtre.
+    background-color: $color-Black; // Couleur de fond de la barre latérale.
+    color: #fff; 
+position: absolute;
+}
+
+.enTete{
+    margin-bottom: 40px;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+main{
+    width: 100%;
+
+}
+
+aside{
+    width: 30%;
+    float: right;
+    min-height: 100%;
+}
+
+.card1{
+    width: 60%;
+    height: 200px;
+    background-color: #FF0101;
+    margin-bottom: 20px;
+}
+
+.card2{
+    width: 60%;
+    height: 200px;
+    background-color: aqua;
+}
