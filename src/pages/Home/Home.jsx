@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/Header/Header";
 
 import StateAside from '../../components/stateAside/StateAside'
-import LineChart from "../../components/graphique/LineChartComponent";
+import BarChartComponent from "../../components/graphique/BarChartComponent";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
               </div>
             </aside>
             <div className="card1">
-              <LineChart />
+              <BarChartComponent />
             </div>
             <div className="card2">deuxieme tableau</div>
           </main>
