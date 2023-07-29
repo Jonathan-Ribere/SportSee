@@ -17,7 +17,6 @@ export default function RadarChartComponent() {
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis angle={30} domain={[0, 150]} />
-       
         <Radar
           name="Lily"
           dataKey="B"
@@ -25,7 +24,6 @@ export default function RadarChartComponent() {
           fill="#82ca9d"
           fillOpacity={0.6}
         />
-    
       </RadarChart>
     </div>
   );
