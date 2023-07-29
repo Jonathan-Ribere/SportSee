@@ -12,14 +12,14 @@ $color-white: #FFFFFF;
 
 .page{
     width: 100%; // La largeur prend tout l'espace disponible.
-    min-width: 1024px; // Définir la largeur minimale.
-    min-height: 780px; // Définir la hauteur minimale.
+    min-width: 1440px; // Définir la largeur minimale.
+    min-height: 1024px; // Définir la hauteur minimale.
 }
 
 .container{
     margin-left: 117px;
     &--layout{
-        padding: 120px;
+        padding: 50px 60px 50px 80px;
     }
 }
 
@@ -54,15 +54,22 @@ aside{
 }
 
 .card1{
-    width: 60%;
-    //height: 200px;
-    height: auto;
+    width: 835px;
+    height: 320px;
  
     margin-bottom: 20px;
 }
 
 .card2{
-    width: 60%;
-    height: 200px;
+    width: 835px;
+    height: 320px;
     background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    &-div{
+        border: solid 1px black;
+        height: max-content;
+        width: 258px;
+        height: 263px;
+    }
 }

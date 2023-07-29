@@ -3,26 +3,23 @@ import {
   BarChart,
   CartesianGrid,
   XAxis,
-  YAxis,
   Tooltip,
   Legend,
   Bar,
   Text,
 } from "recharts";
 
-import './BarChartComponent.css'; // Assurez-vous que le chemin du fichier CSS est correct
-import mockData from "../../mock/BarChart_mock";
+import './BarChartComponent.css'; 
+import mockData from "../../../mock/BarChart_mock";
 
 export default function BarChartComponent() {
   return (
 
-       <div className="chart-container">
 
-     
-      <BarChart className="aaa" width={700} height={250} data={mockData}>
+      <BarChart width={760} height={320} data={mockData}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" />
-        <YAxis />
+        
         <Tooltip />
         <Legend />
         <Bar dataKey="kg" fill="#282D30" barSize={8} radius={[40, 40, 0, 0]}/>
@@ -31,6 +28,6 @@ export default function BarChartComponent() {
           Mon texte en haut à gauche
         </Text>
       </BarChart>
-    </div>
+  
   );
 }
