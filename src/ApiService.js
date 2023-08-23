@@ -1,49 +1,31 @@
 import axios from "axios";
 
+const API_BASE_URL = "http://localhost:3001";
+
 class ApiService {
-    constructor(baseURL) {
+    constructor() {
         this.api = axios.create({
-            baseURL,
+            baseURL: API_BASE_URL,
         });
     }
 
-    //Infos utilisateur & Complétion objectif
-    async getUser(userId) {
+    async getUser(id) {
         try {
-            const response = await this.api.get(`/user/${userId}`);
-            return response.data.data;
+            const response = await this.api.get(`/user/${id}`);
+            return response.data;
         } catch (error) {
-            throw error;
+            console.error("Error fetching user:", error);
+            throw new Error("Failed to fetch user data");
         }
     }
 
-    //Activité quotidienne & Chiffres clés
-    async getUserActivity(userId) {
+    async getUserActivity(id) {
         try {
-            const response = await this.api.get(`/user${userId}/activity`);
-            return response.data.data;
+            const response = await this.api.get(`/user/${id}/activity`);
+            return response.data;
         } catch (error) {
-            throw error;
-        }
-    }
-
-    //Durée sessions
-    async getUserSessions(userId) {
-        try {
-            const response = await this.api.get(`/user${userId}/average-sessions`);
-            return response.data.data;
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    //Types d'activité
-    async getUserPerformance(userId) {
-        try {
-            const response = await this.api.get(`/user${userId}/performance`);
-            return response.data.data;
-        } catch (error) {
-            throw error;
+            console.error("Error fetching user activity:", error);
+            throw new Error("Failed to fetch user activity data");
         }
     }
 

@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useParams } from 'react-router-dom'; // Importez useParams
 import Header from "../../components/Header/Header";
 import StateAside from "../../components/stateAside/StateAside";
 import BarChartComponent from "../../components/graphique/BarChartComponent/BarChartComponent";
 import LineChartComponent from "../../components/graphique/LineChart/LineChartComponent";
 import RadarChartComponent from "../../components/graphique/RadarChartComponent/RadarChartComponent";
 import RadialBarChartComponent from "../../components/graphique/RadialBarChart/RadialBarChartComponent";
+import ApiService from '../../ApiService'
+
+const apiService = new ApiService('http://localhost:3001'); 
 
 export default function Home() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({}); // Initialisation avec un objet vide
+
+  const { id } = useParams();
+  console.log("userId in Home:", id);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/user/12')
-      .then(response => {
-        // Récupérer les données de la réponse
-        const data = response.data.data;
+    apiService.getUser(id)
+      .then(data => {
         setUserData(data);
+        console.log("userData:", data);
       })
       .catch(error => {
-        // Gérer les erreurs ici
         console.error(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="page">
@@ -38,14 +42,14 @@ export default function Home() {
           <main>
             <aside>
               <div>
-                <StateAside />
-                <StateAside />
-                <StateAside />
-                <StateAside />
+                <StateAside txt="Calories" />
+                <StateAside txt="Proteines"/>
+                <StateAside txt="Glucides"/>
+                <StateAside txt="Lipides"/>
               </div>
             </aside>
             <div className="card1">
-              <BarChartComponent todayScore={userData?.todayScore} />
+            <BarChartComponent userId={id} apiService={apiService} />
             </div>
             <div className="card2">
               <div className="card2-div">    
